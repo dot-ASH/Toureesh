@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- <link rel="stylesheet" href="/css/swiper-bundle.min.css" /> -->
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="../packages.css" />
+
+    <title><%= packages[elementno].name %></title>
+    <link rel="icon" type="image/x-icon" href="../page/toureeshW.png" />
+  </head>
+  <body>
+
+      <% if (typeof errors != 'undefined') { %> <% errors.forEach(error =>
+      { %>
+      <div class="flash-container">
+        <div class="flash-messages"><%= error.message %></div>
+      </div>
+      <% }) %> <% } %>
+
+
+
+      <% if(messages.success_msg) { %>
+      <div class="flash-container">
+        <div class="flash-messages">
+          <%= messages.success_msg %>
+        </div>
+      </div>
+      <% } %>
+
+
+
+      <% if (messages.error) { %>
+      <div class="flash-container">
+        <div class="flash-messages"><%= messages.error %></div>
+      </div>
+      <% } %>
+
+    <div class="sidebarOption" id="sidebarOption">
+      <div class="account">
+        <div class="account-logo">
+          <i class="ri-account-pin-circle-line"></i>
+        </div>
+        <div class="account-name">
+          <p><%= sideBar[0].profileName %></p>
+        </div>
+        <div class="account-close" style="cursor: pointer" id="account-close">
+          <i class="ri-close-circle-line"></i>
+        </div>
+      </div>
+      <div class="sidebar-container">
+        <div class="account-booking">
+          <a href="<%= sideBar[0].bookingSite %>" class="booking-class">
+            <%= sideBar[0].status %>
+          </a>
+        </div>
+        <div class="side-bar-nav">
+          <ul class="side-nav__list">
+            <li class="nav__item">
+              <a href="/#home" class="nav__link">Home</a>
+            </li>
+            <li class="side-nav__list">
+              <a href="/#about" class="nav__link">About</a>
+            </li>
+            <li class="side-nav__list">
+              <a href="/#package" class="nav__link">Packages</a>
+            </li>
+            <li class="side-nav__list">
+              <a href="/#place" class="nav__link">Places</a>
+            </li>
+          </ul>
+        </div>
+        <div class="logout <%= sideBar[0].isLogin %>">
+          <div class="account-logout">
+            <a href="/logout" class="logoutBtn">LOGOUT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a title="home" href="/" class="nav__logo">
+          <div class="nav__logo-img">
+            <img
+              src="../page/toureeshW.png"
+              class="img__white"
+              id="white"
+              alt=""
+            />
+            <img
+              src="../page/toureeshB.png"
+              class="img__black"
+              id="black"
+              alt=""
+            />
+          </div>
+        </a>
+
+        <span class="nav__link active-link"
+          ><b><%= packages[elementno].name %> &nbsp; </b
+          ><span value= "2" class="fa fa-star"> <%= packages[elementno].rating %> </span></span
+        >
+
+        <div class="nav__item homelink">
+          <a href="/#home" class="nav__link">Home</a>
+          <span
+            class="nav__link"
+            class="navLinkMe"
+            style="cursor: pointer"
+            id="navLinkMe"
+          >
+            <i class="profile-icon ri-account-circle-fill"></i>
+          </span>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!--==================== HOME ====================-->
+      <section
+        class="home"
+        style="background-image: url('<%= packages[elementno].image %>')"
+        id="home"
+      >
+        <div class="home__container container grid homeP">
+          <div class="home__data">
+            <h2 class="home__data-title">
+              You dreamt of<br />
+              <b><%= packages[elementno].location %></b><br />
+              Here we go!
+            </h2>
+            <a href="#pac_details" class="button">Explore</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="discount__adText container">
+        <div class="wrapper">
+          <a href="/#additional__content" class="marquee">
+            <p>
+              &nbsp; &nbsp; 10% discount is going on. &nbsp;&nbsp;To see more
+              discounts like this click here. &nbsp;&nbsp;10% discount is going
+              on. &nbsp;&nbsp;To see more discounts like this click here.
+            </p>
+            <p>
+              &nbsp;&nbsp;10% discount is going on. &nbsp;&nbsp;To see more
+              discounts like this click here. &nbsp;&nbsp;10% discount is going
+              on. &nbsp;&nbsp;To see more discounts like this click here.
+            </p>
+          </a>
+        </div>
+      </div>
+
+      <!--==================== ABOUT ====================-->
+      <section class="about" id="about">
+        <div class="about__container2 container">
+          <div class="qouteStart">“</div>
+          <h3 class="italicDiv"><%= packages[elementno].location %></h3>
+          <div class="abP">
+            <p class="about__description2">
+              is a small island (area only 3 km2) in the northeastern part of
+              the Bay of Bengal, about 9 km south of the tip of the Cox's
+              Bazar-Teknaf peninsula, and forming the southernmost part of
+              Bangladesh. There is a small adjoining island that is separated at
+              high tide, called Chera Dip. It is about 8 kilometers (5 miles)
+              west of the northwest coast of Myanmar, at the mouth of the Naf
+              River.
+            </p>
+          </div>
+          <div class="qouteEnd">”</div>
+        </div>
+      </section>
+
+      <!--==================== PACKAGE DETAILS CONTAINER ====================-->
+      <section class="pac__details section" id="pac_details">
+        <h3 class="additional__title pacSecT container">
+          <%= packages[elementno].name %>.
+        </h3>
+        <div class="pac__details-container container">
+          <div class="pac__col pac__navDiv">
+            <nav class="pac__nav">
+              <a href="#pac_details" class="navEl" id="timelineB">Timeline</a>
+              <a href="#pac_details" class="navEl" id="includedB">Included</a>
+              <a href="#pac_details" class="navEl" id="excludedB">Ads-on</a>
+              <a href="#pac_details" class="navEl" id="priceB">Price</a>
+              <a href="#pac_details" class="navEl" id="mapB">Map Navigation</a>
+              <a href="#pac_details" class="navEl" id="revB">Rating</a>
+              <div class="animation start-home" id="ani"></div>
+            </nav>
+          </div>
+          <div class="pac__col pac__dec">
+            <div class="pac__dec-container">
+              <div class="pac__dec-data" id="timeline">
+                <div class="timelineContent">
+                  <div class="date">
+                    <span>&#9679;</span>&emsp13;12th August 2022
+                  </div>
+                  <div class="dateInc">
+                    You will reached to Saint Martin using our transportaion
+                    media.
+                  </div>
+                  <div class="dateImg">
+                    <img
+                      src="https://res.cloudinary.com/dw6vamxzc/image/upload/v1667633302/samples/Toureesh/2_cdps0a.jpg"
+                      alt=""
+                      class="dImg"
+                    />
+                  </div>
+                </div>
+                <div class="timelineContent">
+                  <div class="date">
+                    <span>&#9679;</span>&emsp13;13th August 2022
+                  </div>
+                  <div class="dateInc">
+                    You will be staying at the Sunset Serenity Resort.
+                  </div>
+                  <div class="dateImg">
+                    <img
+                      src="https://res.cloudinary.com/dw6vamxzc/image/upload/v1667633204/samples/Toureesh/4_ydkbsx.jpg"
+                      alt=""
+                      class="dImg"
+                    />
+                  </div>
+                </div>
+                <div class="timelineContent">
+                  <div class="date">
+                    <span>&#9679;</span>&emsp13;14th August 2022
+                  </div>
+                  <div class="dateInc">
+                    Our team will give you a ride through the whole spot.
+                  </div>
+                  <div class="dateImg">
+                    <img
+                      src="https://res.cloudinary.com/dw6vamxzc/image/upload/v1667633302/samples/Toureesh/2_cdps0a.jpg"
+                      alt=""
+                      class="dImg"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="pac__dec-data" id="included">
+                <div class="date">
+                  <span>&#9679;</span>&emsp13;What do we promise to give?
+                </div>
+                <div class="dateInc">
+                  <b>#</b> Two night & three days Sunset Serenity Resort
+                  stay.<br />
+                  <b>#</b> Sightseeing guided by profesional team.<br />
+                  <b>#</b> Meal Included.<br />
+                  <b>#</b> Tour Spot Entry Fee.<br />
+                  <b>#</b> Daily Breakfast , Lunch & Diner at Local
+                  Restaurant<br />
+                  <b>#</b> Free AC Bus seat<br />
+                  <b>#</b> Free transportaion inside the spot.
+                </div>
+              </div>
+              <div class="pac__dec-data" id="excluded">
+                <div class="date">
+                  <span>&#9679;</span>&emsp13;Features we don't have but you can
+                  add!
+                </div>
+                <div class="dateInc">
+                  <b>#</b> One way flight. <br />
+                  <b>#</b> Tour nessecity package including life jacket,
+                  backpack, binoculars, e.t.c.<br />
+                </div>
+              </div>
+              <div class="pac__dec-data" id="price">
+                <div class="date">
+                  <span>&#9679;</span>&emsp13;What it costs?
+                </div>
+                <div class="dateInc">
+                  <b>#</b> <%= packages[elementno].price %> BDT (Without
+                  Ads-ons)
+                </div>
+                <div class="ptp">
+                  <button class="button pricePay" id="loginBtn">
+                    <a
+                      href="../payment"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >proceed to pay</a
+                    >
+                  </button>
+                </div>
+              </div>
+
+              <div class="pac__dec-data" id="map_navigation">
+                <div class="date">
+                  <span>&#9679;</span>&emsp13; Map Navigation
+                </div>
+                <div class="dateInc">
+                  <iframe
+                    class="map"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5098.987402329957!2d92.32322906944755!3d20.624190710015707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30ae23666ddf01b1%3A0xfb9c82c83dacf078!2sSaint%20Martins%20Island!5e0!3m2!1sen!2sbd!4v1657573211042!5m2!1sen!2sbd"
+                    width="600"
+                    height="400"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+              </div>
+              <div class="pac__dec-data" id="reviews">
+                <div class="date"><span>&#9679;</span>&emsp13;Rating</div>
+
+                <form action="rating" method="post">
+                  <div class="myRating">
+                    <div class="star-widget">
+                      <input
+                        class="star"
+                        type="radio"
+                        name="rate"
+                        id="rate-5"
+                        value="5"
+                      />
+                      <label for="rate-5" class="fas fa-star"></label>
+                      <input
+                        class="star"
+                        type="radio"
+                        name="rate"
+                        id="rate-4"
+                        value="4"
+                      />
+                      <label for="rate-4" class="fas fa-star"></label>
+                      <input
+                        class="star"
+                        type="radio"
+                        name="rate"
+                        id="rate-3"
+                        value="3"
+                      />
+                      <label for="rate-3" class="fas fa-star"></label>
+                      <input
+                        class="star"
+                        type="radio"
+                        name="rate"
+                        id="rate-2"
+                        value="2"
+                      />
+                      <label for="rate-2" class="fas fa-star"></label>
+                      <input
+                        class="star"
+                        type="radio"
+                        name="rate"
+                        id="rate-1"
+                        value="1"
+                      />
+                      <label for="rate-1" class="fas fa-star"></label>
+                    </div>
+                    <div class="dateInc ratingSec">
+                      <input
+                        class="ratingInput"
+                        type="text"
+                        name="score"
+                        id="count"
+                        value="1"
+                        readonly
+                      />
+                      <br />
+                      <br />
+                      <br />
+                    </div>
+                  </div>
+                  <label for="review"><h4><b>Your Review:</b></h4></label>
+                  <textarea
+                    id="review"
+                    name="review"
+                    placeholder="Enter your thoughts on this package. (optional)"
+                  ></textarea>
+                  <button name="packageName" value="<%= packages[elementno].name %>" class="ratingInput button"><p>Submit</p></button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== FOOTER ====================-->
+      <footer class="footer section">
+        <div class="footer__container container grid">
+          <div class="footer__content grid">
+            <div class="footer__data">
+              <h2 class="footer__title">Toureesh</h2>
+              <p class="footer__description">
+                You choose the destination,<br />
+                Let us worry about the <br />
+                rest.
+              </p>
+              <div>
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  class="footer__social"
+                >
+                  <i class="ri-facebook-box-fill"></i>
+                </a>
+                <a
+                  href="https://twitter.com/"
+                  target="_blank"
+                  class="footer__social"
+                >
+                  <i class="ri-twitter-fill"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  class="footer__social"
+                >
+                  <i class="ri-instagram-fill"></i>
+                </a>
+                <a
+                  href="https://www.youtube.com/"
+                  target="_blank"
+                  class="footer__social"
+                >
+                  <i class="ri-youtube-fill"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="footer__data">
+              <h3 class="footer__subtitle">About</h3>
+              <ul>
+                <li class="footer__item">
+                  <a href="#about" class="footer__link">About Us</a>
+                </li>
+                <li class="footer__item">
+                  <a href="" class="footer__link">Features</a>
+                </li>
+                <li class="footer__item">
+                  <a href="#additional__content" class="footer__link"
+                    >Discounts and offer</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer__data">
+              <h3 class="footer__subtitle">Support</h3>
+              <ul>
+                <li class="footer__item">
+                  <a href="" class="footer__link">FAQs</a>
+                </li>
+                <li class="footer__item">
+                  <a href="" class="footer__link">Support Center</a>
+                </li>
+                <li class="footer__item">
+                  <a href="" class="footer__link">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer__rights">
+            <p class="footer__copy">&#169; SASH. All rights reserved.</p>
+            <div class="footer__terms">
+              <a href="#" class="footer__terms-link">Terms & Agreements</a>
+              <a href="#" class="footer__terms-link">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!--========== SCROLL UP ==========-->
+    <a href="#" class="scrollup" id="scroll-up">
+      <i class="ri-arrow-up-line scrollup__icon"></i>
+    </a>
+    <!-- <script src="/js/swiper-bundle.min.js"></script> -->
+    <script src="../scrollreveal.min.js"></script>
+    <script src="../packages.js"></script>
+    <script src="../index.js"></script>
+  </body>
+</html>

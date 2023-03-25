@@ -1,0 +1,94 @@
+.sidebarOption {
+  position: fixed;
+  height: 100%;
+  width: 30%;
+  right: -30%;
+  background-color: #a98670;
+  color: white;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 5px;
+  z-index: 1500;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  opacity: 0.95;
+}
+
+.div-close {
+  right: 0%;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding-left: 60px;
+}
+
+.account {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  left: 0%;
+  justify-content: space-between;
+  padding: 40px;
+}
+
+.account-logo {
+  color: white;
+  margin-top: 60px;
+  font-size: 60px;
+}
+
+.account-close {
+  color: white;
+  font-size: 30px;
+}
+
+.ri-close-circle-fill,
+.account-name,
+.account-booking,
+.account-logout,
+#sidebarOption a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding-top: 20px;
+}
+
+.account-name {
+  /* margin: 55px 0px 31px -135px; */
+  padding-left: -44rem;
+  top: 18%;
+}
+.account-logout {
+    text-decoration: dotted underline;
+}
+.account-booking {
+    text-decoration: dotted underline;
+}
+
+.no{
+    visibility: hidden;
+}
+
+@media screen and (min-width: 700px) {
+
+  .side-bar-nav{
+      display: none;
+}
+
+}
+
+@media screen and (max-width: 700px) {
+  .sidebarOption {
+    right: -60%;
+    width: 50%;
+   
+  }
+   .navLinkMe{
+    position: fixed;
+    right: 5rem;
+   }
+}

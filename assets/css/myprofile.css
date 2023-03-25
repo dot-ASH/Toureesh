@@ -1,0 +1,280 @@
+@import "main.css";
+
+body {
+  background-color: #463f3a;
+
+}
+
+a {
+  text-decoration: none;
+  color: gray;
+}
+
+.profile-bg {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 38px;
+  width: 250px;
+  padding: 6px 10px;
+  color: rgb(255, 255, 255);
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid hsla(42, 100%, 19%, 1);
+  outline: 0;
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+button:disabled:hover,
+button[disabled]:hover {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+input::placeholder {
+  color: hsla(42, 100%, 19%, 1);
+}
+
+.button {
+  color: white;
+}
+
+.far {
+  color: #5b5b5b;
+  position: absolute;
+  flex-wrap: wrap;
+  margin: 15px 0px 0px -30px;
+}
+
+.myprofile {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  border: 1px solid rgb(37, 37, 37);
+  border-radius: 7.5px;
+  margin: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 3;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 300;
+}
+
+#myprofile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#myprofile input {
+  background-color: #5b5b5b;
+}
+
+#myprofile input::placeholder {
+  color: rgb(255, 255, 255);
+}
+
+.error-msg {
+  color: rgb(255, 68, 0);
+  transition: 0.6s ease;
+  z-index: 5000;
+}
+
+.profile-image a {
+  color: RoyalBlue;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.profile-image a:hover {
+  color: CornflowerBlue;
+}
+
+
+.circle {
+  line-height: 0;
+  display: inline-block;
+  margin: 5px;
+  border: 4px solid rgba(200, 200, 200, 0.4);
+  border-radius: 50%;
+  transition: linear 0.25s;
+  height: 128px;
+  width: 128px;
+}
+
+.circle img {
+  border-radius: 50%;
+}
+
+.circle:hover {
+  transition: ease-out 0.2s;
+  border: 4px solid rgba(0, 0, 0, 0.2);
+  -webkit-transition: ease-out 0.2s;
+}
+
+a.circle {
+  color: transparent;
+}
+
+.myprofile-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  gap: 5px
+}
+
+.personal-info {
+  width: 50%;
+  height: auto;
+  border: 1px dotted hsla(42, 100%, 19%, 1);
+  padding: 20px;
+}
+
+.booking-info {
+  width: 50%;
+  height: auto;
+  border: 1px dotted hsla(42, 100%, 19%, 1);
+  padding: 20px;
+}
+
+.profile-data {
+  display: flex;
+  justify-content: space-between;
+}
+
+label {
+  font: "Nunito";
+  color: black;
+}
+
+.profile-edit p {
+  /* margin-top: -10px; */
+  cursor: pointer;
+  user-select: none;
+}
+
+.profile-submit {
+  display: flex;
+  justify-content: space-between;
+}
+
+.booking {
+  text-align: left;
+  padding: 0 3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.8rem;
+  margin-top: -2.5rem;
+}
+
+.tooltip {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.tooltip::after {
+  --scale: 0;
+  position: absolute;
+  content: attr(data-tooltip);
+  top: -0.2rem;
+  left: 50%;
+  width: max-content;
+  color: #668864;
+  border: 1px solid #0fff0f;
+  border-radius: 1.5rem;
+  padding: 0rem 2.5rem;
+  padding: -2rem 13.5rem;
+  background: rgb(255, 255, 255);
+  transform: translateX(-50%) translateY(-100%) scale(var(--scale));
+  /* transform-origin: bottom center; */
+  transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.tooltip:hover::after {
+  --scale: 1;
+}
+
+.del::after {
+  color: red;
+  border: 1px solid red;
+}
+
+.warning::after{
+  color: rgb(77, 80, 53);
+  border: 1px solid rgb(217, 198, 50);
+}
+
+.popup {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5000;
+  display: none;
+  justify-content: center; 
+   align-items: center;
+   background:rgb(37, 37, 37, 0.5);
+   opacity: 0;
+  transition: 1s ease-in;
+}
+
+.popup-confirmation{
+  position: relative;
+  border-radius: 1rem;
+  /* padding: 5rem 15rem; */
+  color: #111111;
+  background:rgb(250, 231, 231);
+  border: .5px solid black;
+  text-align: left;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.popup-confirmation p{
+  align-items: center;
+  justify-content: center;
+}

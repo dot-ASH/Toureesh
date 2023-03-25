@@ -1,0 +1,93 @@
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 30px;
+  border: 1px solid rgb(37, 37, 37);
+  border-radius: 7.5px;
+  margin-top: -5rem;
+  margin-bottom: auto;
+  line-height: 3;
+  font-size: 16px;
+  background-image: url("page/login.jpeg");
+  background-position: center;
+  background-size: cover;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  font-size: 1.8rem;
+  height: 48px;
+  padding: 6px 15px;
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: hsla(42, 100%, 19%, 1);
+}
+
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid hsla(42, 100%, 19%, 1);
+  outline: 0;
+}
+
+input::placeholder {
+  color: hsla(42, 100%, 19%, 1);
+}
+
+.login__description {
+  padding: 3rem 0 6rem 0;
+  color: #ffffff;
+}
+
+.dotted {
+  margin-top: 10px;
+  border-bottom: 1px dashed #999;
+  text-decoration: none;
+  color: #f6b1b1;
+  background: #3f4449;
+  border-radius: 5px;
+  padding: 0px 5px;
+}
+
+.forget_pass {
+  margin-top: 10px;
+}
+
+.far {
+  color: #5b5b5b;
+  position: absolute;
+  flex-wrap: wrap;
+  margin: 15px 0px 0px -30px;
+}
+
+input,
+#login .button {
+  width: 35rem;
+  font-size: 1.6rem;
+}

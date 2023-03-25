@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//fonts.googleapis.com/css?family=Lora"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <title>Toureesh</title>
+    <link rel="icon" type="image/x-icon" href="page/toureeshW.png" />
+  </head>
+  <body>
+    <div class="sidebarOption" id="sidebarOption">
+      <div class="account">
+        <div class="account-logo">
+          <i class="ri-account-pin-circle-line"></i>
+        </div>
+        <div class="account-name">
+          <h2 style="margin: 5rem 5%"><%= sideBar[0].profileName %></h2>
+        </div>
+        <div class="account-close" style="cursor: pointer" id="account-close">
+          <i class="ri-close-circle-line"></i>
+        </div>
+      </div>
+      <div class="sidebar-container">
+        <div class="account-booking">
+          <a href="<%= sideBar[0].bookingSite %>" class="booking-class">
+            <%= sideBar[0].status %>
+          </a>
+        </div>
+        <div class="side-bar-nav">
+          <ul class="side-nav__list">
+            <li class="nav__item">
+              <a href="/#home" class="nav__link">Home</a>
+            </li>
+            <li class="side-nav__list">
+              <a href="/#about" class="nav__link">About</a>
+            </li>
+            <li class="side-nav__list">
+              <a href="/#package" class="nav__link">Packages</a>
+            </li>
+            <li class="side-nav__list">
+              <a href="/#place" class="nav__link">Places</a>
+            </li>
+          </ul>
+        </div>
+        <div class="logout <%= sideBar[0].isLogin %>">
+          <div class="account-logout">
+            <a href="/logout" class="logoutBtn">LOGOUT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="/" class="nav__logo">
+          <div class="nav__logo-img">
+            <img
+              src="page/toureeshW.png"
+              class="img__white"
+              id="white"
+              alt=""
+            />
+            <img
+              src="page/toureeshB.png"
+              class="img__black"
+              id="black"
+              alt=""
+            />
+          </div>
+        </a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="/#home" class="nav__link active-link">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="/#about" class="nav__link">About</a>
+            </li>
+            <li class="nav__item">
+              <a href="/#package" class="nav__link">Packages</a>
+            </li>
+            <li class="nav__item">
+              <a href="/#place" class="nav__link">Places</a>
+            </li>
+          </ul>
+
+          <span class="navLinkMe" style="cursor: pointer" id="navLinkMe">
+            <i class="profile-icon ri-account-circle-fill"></i>
+          </span>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!--==================== HOME ====================-->
+
+      <section
+        id="home"
+        style="background-image: url('page/1.jpg')"
+        class="home"
+      >
+        <div class="home__container container">
+          <div class="home__data">
+            <div class="welcome">Hey, <%= user %></div>
+            <h2 class="home__data-title">
+              Where ever <br />
+              <b
+                >You want to<br />
+                Go
+              </b>
+            </h2>
+            <a href="/#package" class="button">Explore</a>
+            <div class="home__social">
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                class="home__social-link"
+              >
+                <i class="ri-facebook-box-fill"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                class="home__social-link"
+              >
+                <i class="ri-instagram-fill"></i>
+              </a>
+              <a
+                href="https://discord.com"
+                target="_blank"
+                class="home__social-link"
+              >
+                <i class="ri-discord-fill"></i>
+              </a>
+            </div>
+          </div>
+
+          <% if(user === "User"){ %>
+          <div class="home__info button">
+            <a href="/#login"> Login <i class="ri-arrow-right-line"></i> </a>
+          </div>
+          <% } %>
+        </div>
+      </section>
+
+      <div class="wrapper container">
+        <a href="/#additional__content" class="marquee">
+          <p>
+            &nbsp; &nbsp; 10% discount is going on. &nbsp;&nbsp;To see more
+            discounts like this click here. &nbsp;&nbsp;10% discount is going
+            on. &nbsp;&nbsp;To see more discounts like this click here.
+          </p>
+          <p>
+            &nbsp;&nbsp;10% discount is going on. &nbsp;&nbsp;To see more
+            discounts like this click here. &nbsp;&nbsp;10% discount is going
+            on. &nbsp;&nbsp;To see more discounts like this click here.
+          </p>
+        </a>
+      </div>
+      <!--==================== ABOUT ====================-->
+      <section class="about" id="about">
+        <div class="about__container container grid">
+          <div class="about__data">
+            <h1>Who we are!</h1>
+            <p class="about__description">
+              You can find the most beautiful and pleasant packages at the best
+              prices with special discounts, you choose the package we will
+              guide you all the way to wait, get your package now.
+            </p>
+            <a href="/#experience" class="button">Experience</a>
+          </div>
+
+          <div class="about__img">
+            <div class="about__img-overlay">
+              <img src="page/14.png" alt="" class="about__img-two" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== packageS ====================-->
+      <section class="package section" id="package">
+        <h2 class="section__title" style="color: white">Your packages</h2>
+
+        <div class="package__container container grid">
+          <% packages.forEach(package => { %>
+          <div class="package__card">
+            <img src="<%= package.image %>" alt="" class="package__img" />
+            <div class="package__content">
+              <span class="package__rating">
+                <i class="ri-star-line package__rating-icon"></i>
+                <span class="package__rating-number">
+                  <%= package.rating %>
+                </span>
+              </span>
+
+              <div class="package__data">
+                <a href="<%= package.url %>">
+                  <h3 class="package__title"><%= package.name %></h3></a
+                >
+                <span class="package__subtitle"><%= package.location %></span>
+                <span class="package__price"><%= package.price_tag %></span>
+              </div>
+            </div>
+
+            <a
+              href="<%= package.url %>"
+              class="button button--flex package__button"
+            >
+              <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+          <% }) %>
+        </div>
+      </section>
+
+      <!--==================== place ====================-->
+      <section class="place section" id="place">
+        <div class="place__container container">
+          <h2 class="section__title">
+            places <br />
+            you must go
+          </h2>
+          <div class="swiper swiper__container">
+            <div class="swiper-wrapper">
+              <% places.forEach(place => { %>
+              <div
+                class="swiper-slide"
+                style="
+                  background: url('<%= place.image %>');
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                "
+              >
+                <a
+                  href="<%= place.link %>"
+                  style="color: #ffffff; pointer-events: none"
+                  ><%= place.name %></a
+                >
+              </div>
+              <% }) %>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== EXPERIENCE ====================-->
+      <section class="experience section" id="experience">
+        <h2 class="section__title">
+          With Our Experience <br />
+          We Will Serve You
+        </h2>
+        <div class="experience__container container grid">
+          <div class="exp__art">
+            <div class="exp__Img">
+              <img src="page/Butterfly.png" alt="" class="imgOne" />
+            </div>
+            <div class="exp__Img">
+              <img src="page/flower.png" alt="" class="imgTwo" />
+            </div>
+          </div>
+          <div class="experience__content grid">
+            <div class="experience__data">
+              <h2 class="experience__number">5</h2>
+              <span class="experience__description"
+                >Years <br />
+                Experience</span
+              >
+            </div>
+
+            <div class="experience__data">
+              <h2 class="experience__number">5+</h2>
+              <span class="experience__description"
+                >Supporting <br />
+                Services</span
+              >
+            </div>
+
+            <div class="experience__data">
+              <h2 class="experience__number">10+</h2>
+              <span class="experience__description"
+                >Tourist <br />
+                Destination</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== Log in ====================-->
+      <% if(user === "User"){ %>
+      <section class="section" id="login">
+        <h2 class="section__title" style="margin: -60px 0 60px 0">Login</h2>
+        <div class="login container">
+          <ul>
+            <% if (typeof errors != 'undefined') { %> <% errors.forEach(error =>
+            { %>
+            <div class="flash-container">
+              <div class="flash-messages"><li><%= error.message %></li></div>
+            </div>
+            <% }) %> <% } %>
+          </ul>
+
+          <ul>
+            <% if(messages.success_msg) { %>
+            <div class="flash-container">
+              <div class="flash-messages">
+                <li><%= messages.success_msg %></li>
+              </div>
+            </div>
+            <% } %>
+          </ul>
+
+          <ul>
+            <% if (messages.error) { %>
+            <div class="flash-container">
+              <div class="flash-messages"><li><%= messages.error %></li></div>
+            </div>
+            <% } %>
+          </ul>
+
+          <div class="login__description"><h3>Login to your account</h3></div>
+          <form
+            action="/login"
+            method="post"
+            class="login__form"
+            name="form1"
+            id="loginForm"
+          >
+            <label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                placeholder="Enter username"
+                class="login__input"
+              />
+            </label>
+            <label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter password"
+                id="password"
+                class="login__input"
+                required
+              />
+              <i
+                class="far fa-eye"
+                id="togglePassword"
+                style="cursor: pointer"
+              ></i>
+            </label>
+            <button type="submit" id="loginBtn" class="button">login</button>
+          </form>
+
+          <div class="forget_pass">
+            <a href="/forgetPass" class="dotted"> forget password? </a>
+          </div>
+          <div class="new_reg">
+            <a href="/registration" class="dotted">
+              New here? click to registration!
+            </a>
+          </div>
+        </div>
+      </section>
+      <% } %>
+
+      <!--==================== ADDITIONAL CONTENT ====================-->
+      <section
+        class="additional__content section container grid"
+        id="additional__content"
+      >
+        <h3>More on Toureesh</h3>
+        <hr />
+        <div class="additional__content_container">
+          <div class="discounts" id="discounts">
+            <h2 class="additional__title">Charming Discounts and Offers</h2>
+            <div class="discounts__container">
+              <% discounts.forEach(discount =>{ %>
+              <div class="discounts__data">
+                <div class="discounts__description">
+                  <div class="discounts__title">
+                    <a href="/discounts"><h2><%= discount.title %></h2></a>
+                  </div>
+                  <div class="discounts__details">
+                    <p><%= discount.details %></p>
+                  </div>
+                </div>
+                <div class="discounts__img">
+                  <img src="<%= discount.imageUrl %>" alt="" class="dis-img" />
+                </div>
+              </div>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--==================== SPONSORS ====================-->
+      <section class="sponsor section">
+        <div class="sponsor__container container grid">
+          <div class="sponsor__content">
+            <img src="sponsor/one.png" alt="" class="sponsor__img" />
+          </div>
+          <div class="sponsor__content">
+            <img src="sponsor/two.png" alt="" class="sponsor__img" />
+          </div>
+          <div class="sponsor__content">
+            <img src="sponsor/three.png" alt="" class="sponsor__img" />
+          </div>
+          <div class="sponsor__content">
+            <img src="sponsor/four.png" alt="" class="sponsor__img" />
+          </div>
+          <div class="sponsor__content">
+            <img src="sponsor/five.png" alt="" class="sponsor__img" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--==================== FOOTER ====================-->
+    <footer class="footer section">
+      <div class="footer__container container grid">
+        <div class="footer__content grid">
+          <div class="footer__data">
+            <h2 class="footer__title">Toureesh</h2>
+            <p class="footer__description">
+              You choose the destination,<br />
+              Let us worry about the <br />
+              rest.
+            </p>
+            <div>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                class="footer__social"
+              >
+                <i class="ri-facebook-box-fill"></i>
+              </a>
+              <a
+                href="https://twitter.com/"
+                target="_blank"
+                class="footer__social"
+              >
+                <i class="ri-twitter-fill"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                class="footer__social"
+              >
+                <i class="ri-instagram-fill"></i>
+              </a>
+              <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                class="footer__social"
+              >
+                <i class="ri-youtube-fill"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer__data">
+            <h3 class="footer__subtitle">About</h3>
+            <ul>
+              <li class="footer__item">
+                <a href="/#about" class="footer__link">About Us</a>
+              </li>
+              <li class="footer__item">
+                <a href="" class="footer__link">Features</a>
+              </li>
+              <li class="footer__item">
+                <a href="/#additional__content" class="footer__link"
+                  >Discounts and offer</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer__data">
+            <h3 class="footer__subtitle">Support</h3>
+            <ul>
+              <li class="footer__item">
+                <a href="" class="footer__link">FAQs</a>
+              </li>
+              <li class="footer__item">
+                <a href="" class="footer__link">Support Center</a>
+              </li>
+              <li class="footer__item">
+                <a href="" class="footer__link">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__rights">
+          <p class="footer__copy">&#169; <b>.ASH</b> all rights reserved.</p>
+          <div class="footer__terms">
+            <a href="/#" class="footer__terms-link">Terms & Agreements</a>
+            <a href="/#" class="footer__terms-link">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!--========== SCROLL UP ==========-->
+    <a href="/#home" class="scrollup" id="scroll-up">
+      <i class="ri-arrow-up-line scrollup__icon"></i>
+    </a>
+
+    <!--=============== SCROLL REVEAL===============-->
+    <script src="scrollreveal.min.js"></script>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="swiper.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="index.js"></script>
+    <script type="module" src="showPass.js"></script>
+  </body>
+</html>

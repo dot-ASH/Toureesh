@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <!-- PACKAGES -->
+    <div>
+      <H1>PACKAGES</H1>
+      <form action="entry" method="post">
+        <div class="container">
+          <label>Name: </label>
+          <input type="text" placeholder="Package Name" name="name" required />
+          <label>Loacation: </label>
+          <input type="text" placeholder="Loacation" name="location" required />
+          <label>Price tag: </label>
+          <input
+            type="text"
+            placeholder="price-tag"
+            name="price_tag"
+            required
+          />
+          <label>Image link: </label>
+          <input type="text" placeholder="image" name="image" required />
+          <label>Url : </label>
+          <input type="text" placeholder="url" name="url" />
+          <label>Rating: </label>
+          <input type="number" step="0.1" placeholder="Rating" name="rating" />
+          <button type="submit">SUBMIT</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

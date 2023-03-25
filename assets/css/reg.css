@@ -1,0 +1,156 @@
+@import "main.css";
+
+body {
+  background-color: rgb(235, 228, 218);
+  height: 100;
+}
+
+a {
+  text-decoration: none;
+  color: gray;
+}
+
+.reg__description {
+  padding: 50px;
+}
+
+.reg__description h3 {
+  font-size: 3rem;
+  color: #976f60;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 60px;
+  width: 400px;
+  padding: 6px 10px;
+  color: hsla(42, 100%, 19%, 1);
+  background-color: #fff;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid hsla(42, 100%, 19%, 1);
+  outline: 0;
+}
+
+input::placeholder {
+  color: hsla(42, 100%, 19%, 1);
+}
+
+
+.home__img {
+  position: absolute;
+  top: 0%;
+  width: 700%;
+  object-fit: cover;
+}
+
+
+.reg-bg {
+  position: fixed;
+  height: 100%;
+}
+
+
+.button {
+  color: white;
+}
+
+.far {
+  color: #5b5b5b;
+  position: absolute;
+  flex-wrap: wrap;
+  margin: 18px 0px 0px 0px;
+}
+
+.reg {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  /* border: 1px solid rgb(37, 37, 37); */
+  border-radius: 7.5px;
+  margin: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 3;
+  font-size: 16px;
+  background-color: rgba(255, 255, 255, 0.9);
+  z-index: 300;
+}
+
+#reg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.error-msg {
+  color: rgb(255, 68, 0);
+  transition: 0.6s ease;
+}
+
+#regBtn,
+.new_reg,
+.login-with-google-btn {
+  font-size: 1.6rem;
+  /* left: 10%; */
+  width: 40rem;
+}
+
+#reg .dotted {
+  background: none;
+  color: #db4848;
+}
+
+.flash-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  top: -100px;
+  left: 0px;
+  z-index: 2000;
+  pointer-events: none;
+  opacity: 0;
+  transition-delay: 1s;
+  transition-duration: 2s;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.flash-messages {
+  font-size: larger;
+  width: 600px;
+  height: 60px;
+  color: white;
+  background-color: #463f3a;
+  border: 1px solid rgba(255, 255, 255);
+  padding: 1.4rem 3rem;
+  border-radius: 5px;
+  box-shadow: 1px 5px 10px 8px rgb(234 234 234);
+}

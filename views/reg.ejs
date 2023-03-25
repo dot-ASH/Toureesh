@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="reg.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Register</title>
+  </head>
+
+  <body>
+    <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+    <div class="flash-container">
+      <div class="flash-messages"><%= error.message %></div>
+    </div>
+    <% }) %> <% } %> <% if(messages.success_msg) { %>
+    <div class="flash-container">
+      <div class="flash-messages"><><%= messages.success_msg %></div>
+    </div>
+    <% } %> <% if (messages.error) { %>
+    <div class="flash-container">
+      <div class="flash-messages"><><%= messages.error %></div>
+    </div>
+    <% } %>
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="/" class="nav__logo">
+          <div class="nav__logo-img">
+            <img
+              src="page/toureeshW.png"
+              class="img__white"
+              id="white"
+              alt=""
+            />
+            <img
+              src="page/toureeshB.png"
+              class="img__black"
+              id="black"
+              alt=""
+            />
+          </div>
+        </a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="/#home" class="nav__link" style="color: black">Home</a>
+            </li>
+            <li class="nav__item">
+              <a
+                href="/myProfile#myprofile-container"
+                class="nav__link active-link"
+                >Registration</a
+              >
+            </li>
+          </ul>
+
+          <span
+            class="navLinkMe ri-at-line"
+            style="cursor: pointer"
+            id="navLinkMe"
+          >
+          </span>
+        </div>
+
+        <div class="nav__toggle">
+          <i class="ri-function-line"></i>
+        </div>
+      </nav>
+    </header>
+    <section class="section" id="reg">
+      <img src="page/1.jpg" alt="" class="home__img reg-bg" />
+      <div
+        style="display: flex; flex-direction: row; gap: 15px; margin-top: -15px"
+      >
+        <h3 style="margin: 12px 0 0 -30px"><a href="/">HOME</a></h3>
+        <h2 class="section__title" style="font-size: 28px">Registration</h2>
+      </div>
+      <div class="reg">
+        <div class="reg__description"><h3>Create an account</h3></div>
+
+        <form action="/register" method="POST">
+          <div>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Name"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
+          </div>
+          <div>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <i
+              class="far fa-eye"
+              id="togglePassword"
+              style="margin-left: -30px; cursor: pointer"
+            ></i>
+          </div>
+          <div>
+            <input
+              type="password"
+              id="password2"
+              name="password2"
+              placeholder="Confirm Password"
+              required
+            />
+          </div>
+          <div>
+            <button type="submit" id="regBtn" class="button">
+              Resigration
+            </button>
+          </div>
+        </form>
+        <div class="new_reg">
+          <a href="/#login" class="dotted"> already registered? login here! </a>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="showPass.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="reg.js"></script>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+</html>

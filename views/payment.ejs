@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="packages.css" />
+
+    <title>Payment</title>
+    <link rel="icon" type="image/x-icon" href="/img/page/toureeshW.png" />
+  </head>
+  <body>
+    <div class="sidebarOption" id="sidebarOption">
+      <div class="account">
+        <div class="account-logo">
+          <i class="ri-account-pin-circle-line"></i>
+        </div>
+        <div class="account-name">
+          <h2><%= sideBar[0].profileName %></h2>
+        </div>
+        <div class="account-close" style="cursor: pointer" id="account-close">
+          <i class="ri-close-circle-line"></i>
+        </div>
+      </div>
+      <div class="sidebar-container">
+        <div class="account-booking">
+          <a href="<%= sideBar[0].bookingSite %>" class="booking-class">
+            <%= sideBar[0].status %>
+          </a>
+        </div>
+        <div class="side-bar-nav">
+          <ul class="side-nav__list">
+            <li class="nav__item">
+              <a href="/#home" class="nav__link">Home</a>
+            </li>
+            <li class="side-nav__list">
+              <a href="/#about" class="nav__link">About</a>
+            </li>
+            <li class="side-nav__list">
+              <a href="/#package" class="nav__link">Packages</a>
+            </li>
+            <li class="side-nav__list">
+              <a href="/#place" class="nav__link">Places</a>
+            </li>
+          </ul>
+        </div>
+        <div class="logout <%= sideBar[0].isLogin %>">
+          <div class="account-logout">
+            <a href="/logout" class="logoutBtn">LOGOUT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ul>
+      <% if (typeof errors != 'undefined') { %> <% errors.forEach(error => { %>
+      <div class="flash-container">
+        <div class="flash-messages"><li><%= error.message %></li></div>
+      </div>
+      <% }) %> <% } %>
+    </ul>
+
+    <ul>
+      <% if(messages.success_msg) { %>
+      <div class="flash-container">
+        <div class="flash-messages">
+          <li><%= messages.success_msg %></li>
+        </div>
+      </div>
+      <% } %>
+    </ul>
+
+    <ul>
+      <% if (messages.error) { %>
+      <div class="flash-container">
+        <div class="flash-messages"><li><%= messages.error %></li></div>
+      </div>
+      <% } %>
+    </ul>
+
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="/" class="nav__logo">
+          <div class="nav__logo-img">
+            <img
+              src="page/toureeshW.png"
+              class="img__white"
+              id="white"
+              alt=""
+            />
+            <img
+              src="page/toureeshB.png"
+              class="img__black"
+              id="black"
+              alt=""
+            />
+          </div>
+        </a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="/#home" class="nav__link active-link">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="/payment#payment" class="nav__link">Payment</a>
+            </li>
+          </ul>
+
+          <span class="navLinkMe" style="cursor: pointer" id="navLinkMe">
+            <i class="profile-icon ri-account-circle-fill"></i>
+          </span>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!--==================== HOME ====================-->
+      <section
+        id="home"
+        style="background-image: url('../page/payment.jpg')"
+        class="home"
+      >
+        <div class="home__container container">
+          <div class="home__data">
+            <h1 class="home__data-title botPad">
+              Worth <br /> <br/> <br/>
+              <b>
+                your every<br /><br/> <br/>
+                penny
+              </b>
+            </h1>
+            <a href="#additional__content" class="button">Book</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="discount__adText container">
+        <div class="wrapper">
+          <a href="/#additional__content" class="marquee">
+            <p>
+              &nbsp; &nbsp; 10% discount is going on. &nbsp;&nbsp;To see more
+              discounts like this click here. &nbsp;&nbsp;10% discount is going
+              on. &nbsp;&nbsp;To see more discounts like this click here.
+            </p>
+            <p>
+              &nbsp;&nbsp;10% discount is going on. &nbsp;&nbsp;To see more
+              discounts like this click here. &nbsp;&nbsp;10% discount is going
+              on. &nbsp;&nbsp;To see more discounts like this click here.
+            </p>
+          </a>
+        </div>
+      </div>
+
+      <!--==================== ABOUT ====================-->
+      <section class="about" id="about">
+        <div class="about__container2 container">
+          <div class="qouteStart">“</div>
+          <h3 class="italicDiv"><b>They Say</b></h3>
+          <div class="abP">
+            <p class="about__description2">
+              You cant cross the sea merely by standing and staring at the
+              sea.<br />
+              -Rabindronath Thakur
+            </p>
+          </div>
+          <div class="qouteEnd">”</div>
+        </div>
+      </section>
+
+      <!--==================== PAYMENT SECTION ====================-->
+      <section class="payment__method section container grid" id="payment">
+        <h3 class="additional__title pacSecT container">BOOKING.</h3>
+        <div class="payment__method-container">
+          <form action="/paymentForBooking" method="post" name="priceForm">
+            <div class="username_show pmcDiv">
+              <label class="userN showtext">User Name</label>
+              <input class="userI" name="userI" value="<%= users.name %>"">
+            </div>
+            <div class="package_show">
+              <label class="packageN showtext">Package Name</label>
+              <input
+                class="userI"
+                name="packageSelect"
+                id="packageSelect"
+                required
+                value="<%= package_session.name %>"
+              />
+            </div>
+
+            <div class="amount_show pmcDiv">
+              <label class="amountN showtext"> Amount </label>
+              <input
+                class="userI"
+                name="amountI"
+                id="amountI"
+                onchange="myChangeFunction(this)"
+                required
+                value="1"
+              />
+            </div>
+            <div class="price_show pmcDiv">
+              <label class="priceN showtext"> Total Price</label>
+              <input
+                class="userI"
+                name="priceI"
+                readonly
+                id="priceI"
+                value="<%= packagePrice %>"
+                required
+              />
+            </div>
+            <div class="package_show">
+              <label class="methodI showtext">Payment Method</label>
+              <div class="packageI">
+                <select name="securePayment" class="option-select" required>
+                  <option value="">Choose one from here</option>
+                  <option name="cash" value="Cash">Cash</option>
+                  <option name="bkash" value="Bkash">Bkash</option>
+                 
+                </select>
+              </div>
+            </div>
+            <div class="submit_show">
+              <button class="button sscBtn" id="loginBtn">
+                Pay us with the token
+              </button>
+              <button class="button ssbBtn" id="loginBtn">
+                Pay through BKash
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!--==================== FOOTER ====================-->
+      <footer class="footer section">
+        <div class="footer__container container grid">
+          <div class="footer__content grid">
+            <div class="footer__data">
+              <h2 class="footer__title">Toureesh</h2>
+              <p class="footer__description">
+                You choose the destination,<br />
+                Let us worry about the <br />
+                rest.
+              </p>
+              <div>
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  class="footer__social"
+                >
+                  <i class="ri-facebook-box-fill"></i>
+                </a>
+                <a
+                  href="https://twitter.com/"
+                  target="_blank"
+                  class="footer__social"
+                >
+                  <i class="ri-twitter-fill"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  class="footer__social"
+                >
+                  <i class="ri-instagram-fill"></i>
+                </a>
+                <a
+                  href="https://www.youtube.com/"
+                  target="_blank"
+                  class="footer__social"
+                >
+                  <i class="ri-youtube-fill"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="footer__data">
+              <h3 class="footer__subtitle">About</h3>
+              <ul>
+                <li class="footer__item">
+                  <a href="#about" class="footer__link">About Us</a>
+                </li>
+                <li class="footer__item">
+                  <a href="" class="footer__link">Features</a>
+                </li>
+                <li class="footer__item">
+                  <a href="#additional__content" class="footer__link"
+                    >Discounts and offer</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer__data">
+              <h3 class="footer__subtitle">Support</h3>
+              <ul>
+                <li class="footer__item">
+                  <a href="" class="footer__link">FAQs</a>
+                </li>
+                <li class="footer__item">
+                  <a href="" class="footer__link">Support Center</a>
+                </li>
+                <li class="footer__item">
+                  <a href="" class="footer__link">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer__rights">
+            <p class="footer__copy">&#169; SASH. All rights reserved.</p>
+            <div class="footer__terms">
+              <a href="#" class="footer__terms-link">Terms & Agreements</a>
+              <a href="#" class="footer__terms-link">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!--========== SCROLL UP ==========-->
+    <a href="#" class="scrollup" id="scroll-up">
+      <i class="ri-arrow-up-line scrollup__icon"></i>
+    </a>
+
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+      type="text/javascript"
+    ></script>
+    <!--=============== SCROLL REVEAL===============-->
+    <script src="scrollreveal.min.js"></script>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="swiper.js"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="index.js"></script>
+    <script src="payment.js"></script>
+  </body>
+</html>

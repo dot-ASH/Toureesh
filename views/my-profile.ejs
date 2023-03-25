@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="myprofile.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>My Profile</title>
+  </head>
+  <body>
+    <div class="popup" id="popup">
+      <div class="popup-confirmation">
+        <p>You really want to cancle this booking?</p>
+        <button class="popup-button" id="popup-no">NO</button>
+        <form action="/cancleBooking" method="POST">
+          <button name="bookingId" class="popup-button" id="popup-yes">
+            YES
+          </button>
+        </form>
+      </div>
+    </div>
+    <img src="page/1.jpg" alt="" class="home__img profile-bg" />
+
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="/" class="nav__logo">
+          <div class="nav__logo-img">
+            <img
+              src="page/toureeshW.png"
+              class="img__white"
+              id="white"
+              alt=""
+            />
+            <img
+              src="page/toureeshB.png"
+              class="img__black"
+              id="black"
+              alt=""
+            />
+          </div>
+        </a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="/#home" class="nav__link" style="color: black">Home</a>
+            </li>
+            <li class="nav__item">
+              <a
+                href="/myProfile#myprofile-container"
+                class="nav__link active-link"
+                >My Profile</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <section class="section" id="myprofile">
+      <div
+        style="display: flex; flex-direction: row; gap: 15px; margin-top: -15px"
+      >
+        <h3 style="margin: 12px 0 0 -30px"><a href="/">HOME</a></h3>
+        <h2 class="section__title" style="font-size: 28px">My Profile</h2>
+      </div>
+      <div class="myprofile">
+        <div class="profile-image">
+          <a
+            href="https://i.pinimg.com/originals/db/06/18/db0618cfd84900acf8b7b0172186727d.png"
+            class="circle"
+          >
+            <img height="128" width="128" src="page/profile.png" alt="" />
+          </a>
+        </div>
+        <div class="myprofile__description">
+          <h2><%= user.name %></h2>
+          #<%= user.id %>
+        </div>
+        <div class="error-msg">
+          <ul>
+            <% if (typeof errors != 'undefined') { %> <% errors.forEach(error =>
+            { %>
+            <div class="flash-container">
+              <div class="flash-messages"><li><%= error.message %></li></div>
+            </div>
+            <% }) %> <% } %>
+          </ul>
+          <ul>
+            <% if(messages.success_msg) { %>
+            <div class="flash-container">
+              <div class="flash-messages">
+                <li><%= messages.success_msg %></li>
+              </div>
+            </div>
+            <% } %>
+          </ul>
+        </div>
+        <div class="myprofile-container">
+          <div class="personal-info">
+            <h3>Personal Info</h3>
+            <br />
+            <form action="/EditProfile" method="POST">
+              <div class="profile-data">
+                <label class="labels">Email</label
+                ><input
+                  name="email"
+                  type="email"
+                  class="form-control"
+                  value="<%= user.email %>"
+                  readonly
+                />
+              </div>
+              <div class="profile-data">
+                <label class="labels">Mobile Number</label
+                ><input
+                  name="mblno"
+                  type="text"
+                  class="form-control"
+                  value="<%= user.mobileno %>"
+                  readonly
+                />
+              </div>
+              <div class="profile-data">
+                <label class="labels">Age</label
+                ><input
+                  name="age"
+                  type="text"
+                  class="form-control"
+                  value="<%= user.age %>"
+                  readonly
+                />
+              </div>
+              <div class="profile-data">
+                <label class="labels">Address</label
+                ><input
+                  name="address"
+                  type="text"
+                  class="form-control"
+                  value="<%= user.address %>"
+                  readonly
+                />
+              </div>
+              <div class="profile-data">
+                <label class="labels">City</label
+                ><input
+                  name="city"
+                  type="text"
+                  class="form-control"
+                  value="<%= user.city %>"
+                  readonly
+                />
+              </div>
+              <div class="profile-data">
+                <label class="labels">Profession</label
+                ><input
+                  name="prof"
+                  type="text"
+                  class="form-control"
+                  value="<%= user.profession %>"
+                  readonly
+                />
+              </div>
+              <div class="profile-submit">
+                <div class="button profile-edit">
+                  <p>Edit</p>
+                </div>
+                <button disabled type="submit" id="regBtn" class="button">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="booking-info">
+            <h3>Bookings</h3>
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                padding: 30px;
+              "
+            >
+              <span><b>Name</b></span>
+              <span><b>Booked on</b></span>
+              <span><b>Progress</b></span>
+            </div>
+            <% if(bookings){ %> <% bookings.forEach(booking =>{ %>
+            <div class="booking">
+              <div><%= booking.package_name %></div>
+              <div><%= booking.created_on %></div>
+              <div class="icon">
+                <% if(booking.progress === "done"){ %>
+                <div>
+                  <div
+                    class="tooltip ri-checkbox-circle-fill"
+                    data-tooltip="Done"
+                  ></div>
+                </div>
+                <% } %>
+                <% if(booking.progress === "paid"){ %>
+                    <div
+                      class="tooltip ri-money-dollar-circle-fill"
+                      data-tooltip="Paid"
+                    ></div>
+                  <% } else { %>
+                <i class="tooltip warning ri-timer-2-fill" data-tooltip="Pending"></i>
+                <% } %>
+                <div
+                  name="<%= booking.id %>"
+                  class="tooltip del ri-delete-bin-5-fill"
+                  data-tooltip="Delete/Cancle"
+                ></div>
+              </div>
+            </div>
+            <% }) %> <% } else { %>
+            <i>---------------------------- none ---------------------------</i>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src="profile.js"></script>
+  <script src="index.js"></script>
+</html>
