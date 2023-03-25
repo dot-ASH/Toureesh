@@ -9,6 +9,7 @@
 - Book packages
 - Cancle anytime
 - Discounts panel
+- Email notification
 
 ### Homepage
 ---
@@ -23,3 +24,7 @@
 ---
 
 ![book](/docfiles/order.gif)
+
+#### Email Confirmation
+
+![email](/docfiles/regMail.png)
