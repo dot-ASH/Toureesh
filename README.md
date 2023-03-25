@@ -1,4 +1,4 @@
-*-A tourism management system using node.js, postgreSQL & Express.js *
+*A tourism management system using node.js, postgreSQL & Express.js*
 
 ## Features
 
@@ -12,14 +12,14 @@
 
 ### Homepage
 ---
-![homepage](docfiles/home.gif)
+![homepage  | 400](/docfiles/home.gif)
 
 ### Authentication
 ---
 
-![Authentication](/docfiles/reg-login.mp4)
+![Authentication](/docfiles/reg-login.gif)
 
 ### Book a package
 ---
 
-![book](/docfiles/order.mp4)
+![book](/docfiles/order.gif)
